@@ -32,7 +32,7 @@ public class EcomUserServiceImpl implements EcomUserService {
     public User createUser(User user) {
         Boolean flag = findByUserNameOrEmail(user.getUserName(), user.getEmailId());
         if(!user.getPassword().equalsIgnoreCase(user.getRePassword())) {
-            throw new UserExistException(" Password and RePassword are not equal ");
+            throw new UserExistException(" Password and RePassword are not equal .");
         }
         if (!flag) {
             String password = passwordEncoder.encode(user.getPassword());
